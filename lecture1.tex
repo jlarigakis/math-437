@@ -1,7 +1,7 @@
 \section{Lecture 1 -- Periodic Breathing}
+September 6, 2012
 
 \subsection{Introduction}
-September 6, 2012
 
 Cheyne-Stokes breathing is a pattern of breathing characterized by a rise and fall in breathing depth. Breaths have regular frequency, but the depth varies sinusoidally with a brief period of apnea occuring at the lowest point.
 
@@ -31,7 +31,7 @@ Because this equation depends not only on $x(t)$ but also on $x_\tau(t) = x(t-\t
   \label{eq:Vstar}
 \end{equation}
 
-An additional condition that we impose on our solution is that it is \emph{unstable}. Steady states can have different types of stability:
+An additional condition that we impose on the solution is that it is \emph{unstable}. Steady states can have different types of stability:
 \begin{description}
   \item[Locally Stable] If the system undergoes a small perturbation $\epsilon$ away from the solution, it will eventually return to the steady state.
   \item[Globally Stable] If the system undergoes \emph{any} perturbation, it will eventually return to the steady state.
@@ -64,7 +64,7 @@ If we now assume a solution of the form $z(t) = e^{\nu t}$, the equation becomes
   \Rightarrow \nu &= -A -B e^{-\nu\tau}
 \end{align*}
 
-Our condition that our solution be periodic implies a purely imaginary coefficient $\nu = i\omega$. Note that if $\nu$ had a positive (or negative) real component, $||z||$ would grow (or decay) exponentially. Recall that $z(t)$ measures the difference between $\mathrm{PCO}_2$ at time $t$ and the equilibrium value. Exponential growth of this quantity would be nonphysiological for large enough values of $t$, and exponential decay would indicate that the steady state is in fact stable, which is contrary to hypothesis.
+Our condition that the solution be periodic implies a purely imaginary coefficient $\nu = i\omega$. Note that if $\nu$ had a positive (or negative) real component, $||z||$ would grow (or decay) exponentially. Recall that $z(t)$ measures the difference between $\mathrm{PCO}_2$ at time $t$ and the equilibrium value. Exponential growth of this quantity would be nonphysiological for large enough values of $t$, and exponential decay would indicate that the steady state is in fact stable, which is contrary to hypothesis.
 \begin{align*}
   i\omega &= -A -B e^{-i\omega \tau} = -A - B \left(\cos(\omega\tau)-i\sin(\omega\tau)\right)\\
   \Rightarrow 0 &= A + B\cos(\omega\tau)\\
