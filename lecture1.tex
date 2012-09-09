@@ -1,0 +1,74 @@
+\section{Lecture 1 -- Periodic Breathing}
+
+\subsection{Introduction}
+September 6, 2012
+
+Cheyne-Stokes breathing is a pattern of breathing characterized by a rise and fall in breathing depth. Breaths have regular frequency, but the depth varies sinusoidally with a brief period of apnea occuring at the lowest point.
+
+This pattern is common in the obese and in individuals with damaged brainstems (e.g. stroke victims). It is associated with imminent death. However, it has also been observed in healthy individuals following a transition to high altitude, and Haldane observed that it could be triggered by prolonged hyperventilation.
+
+Periodic breathing is similar, but without the apnea in each cycle.
+
+\subsection{Analysis}
+
+The stimulus for breathing comes from increased levels of $\mathrm{CO}_2$ in the bloodstream. Diffusion rate of $\mathrm{CO}_2$ out of the pulmonary capillaries is proportional to the partial pressure $\mathrm{PCO}_2$ in the capillaries. However, the stimulus which is directly responsible for increased ventilation rate is pH in the CSF surrounding the brainstem. There is a delay (normally about 15s) between a change in the capillary $\mathrm{PCO}_2$ and the corresponding change in CSF pH. A simple model of $\mathrm{CO}_2$ is then 
+\begin{align}
+  \dot{x} &=\text{production}-\text{clearance}\nonumber \\ &= \lambda - \alpha xV(x_\tau)
+  \label{eq:xdot}
+\end{align}
+where
+\begin{align*}
+  x &= \text{arterial PCO}_2 (mmHg)\\
+  \lambda &= \text{rate of CO}_2\text{ production in body}\\
+  V(x_\tau) &= \text{ventilation rate }(L/min)\\
+  x_\tau &= x(t-\tau)\\
+  [\alpha] &\sim 1/L \text{ (constant)}
+\end{align*}
+
+Because this equation depends not only on $x(t)$ but also on $x_\tau(t) = x(t-\tau)$, it is a \emph{delay differential equation} (DDE). We seek a steady state solution, \emph{i.e.} a solution of the form $x= x^*$ such that $\left.\dot{x}\right|_*\equiv 0$. Such a solution must satisfy $\lambda = \alpha x^*V(x^*)$. Note that since $\dot{x}\equiv0$, $x_\tau^* = x^*$. Solving this equation for ventilation rate gives
+\begin{equation}
+  V^* := V(x^*) = \frac{\lambda}{\alpha x^*}.
+  \label{eq:Vstar}
+\end{equation}
+
+An additional condition that we impose on our solution is that it is \emph{unstable}. Steady states can have different types of stability:
+\begin{description}
+  \item[Locally Stable] If the system undergoes a small perturbation $\epsilon$ away from the solution, it will eventually return to the steady state.
+  \item[Globally Stable] If the system undergoes \emph{any} perturbation, it will eventually return to the steady state.
+\end{description}
+
+In this case, we will test for local stability in the case of a small perturbation $\epsilon$. We begin by taking a Taylor expansion of \eqref{eq:xdot}, considering $x$ and $x_\tau$ as independent variables:
+\begin{align*}
+  \dot{x} &= \mathscr{F}(x,x_\tau) = \mathscr{F}(x^*,x^*) + \left. (x-x^*)\frac{\partial{\mathscr{F}}}{\partial{x}} \right|_* + \left. (x_\tau-x^*)\frac{\partial{\mathscr{F}}}{\partial{x_\tau}} \right|_* + O\left( \epsilon^2 \right)\\
+  &\approx  \left. (x-x^*)\frac{\partial{\mathscr{F}}}{\partial{x}} \right|_* + \left. (x_\tau-x^*)\frac{\partial{\mathscr{F}}}{\partial{x_\tau}} \right|_*\\
+  &=(x-x^*)\left( -\alpha V^* \right) + (x_\tau-x^*)(-\alpha x^*S^*)
+\end{align*}
+
+Where $S^* = \left.V^\prime(x)\right|_*$. Note that $\mathscr{F}(x^*,x^*) = 0$ by the definition of a steady state solution. 
+
+A quick substitution $z(t) := x(t)-x^*\Rightarrow z_\tau = x_\tau-x^*$ leads to the simplification
+\begin{align*}
+  \dot{z} &= -z \alpha V^* - z_\tau \alpha x^* S^*.
+\end{align*}
+Substituting in \eqref{eq:Vstar}, we have
+\begin{align*}
+  \dot{z} &= -\frac{\lambda}{x^*}z - \frac{\lambda S^*}{V^*}z_\tau\\
+  &=-Az -Bz_\tau
+\end{align*}
+where $A = \frac{\lambda}{x^*}$ and $B = \frac{\lambda S^*}{V^*}$ are parameters of the system.
+
+If we now assume a solution of the form $z(t) = e^{\nu t}$, the equation becomes
+\begin{align*}
+  \nu e^{\nu t} &= -A e^{\nu t} - B e^{\nu (t-\tau)}\\
+  &= -A e^{\nu t} - B e^{\nu t}e^{-\nu \tau}\\
+  \Rightarrow \nu &= -A -B e^{-\nu\tau}
+\end{align*}
+
+Our condition that our solution be periodic implies a purely imaginary coefficient $\nu = i\omega$. Note that if $\nu$ had a positive (or negative) real component, $||z||$ would grow (or decay) exponentially. Recall that $z(t)$ measures the difference between $\mathrm{PCO}_2$ at time $t$ and the equilibrium value. Exponential growth of this quantity would be nonphysiological for large enough values of $t$, and exponential decay would indicate that the steady state is in fact stable, which is contrary to hypothesis.
+\begin{align*}
+  i\omega &= -A -B e^{-i\omega \tau} = -A - B \left(\cos(\omega\tau)-i\sin(\omega\tau)\right)\\
+  \Rightarrow 0 &= A + B\cos(\omega\tau)\\
+  \Rightarrow \omega &= sin(\omega\tau)
+\end{align*}
+
+We can use these equations to find a relationship between $A$, $B$, and $\tau$ which must be satisfied for periodic breathing to occur.
