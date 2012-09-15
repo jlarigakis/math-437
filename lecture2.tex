@@ -1,0 +1,74 @@
+\section{}
+
+Recall last lecture we analysed $\dot{x} = \lambda - \alpha x V x_\tau$ by
+\begin{enumerate}
+  \item finding a steady state solution $x=x^*2$
+  \item linearalizing in the neighbourhood of the solution
+  \item changing variables to $z = x- x^*$
+  \item using the eigenvalue equation to find \[\tau =\frac{\cos^{-1} (-A/B)} {\sqrt{B^2-A^2}}\]
+\end{enumerate}
+
+Note that we must have 
+$\frac{A}{B}\le1$. Additionally, since $\omega=\sqrt{B^2-A^2}$, we can show that \[T\ge2\tau, \arccos(-A/B)\in [0,\pi]\] and \[2\tau\le T\le 4\tau, \arccos(-A/B)\in [\pi/2, \pi]\]
+
+%graph (-A/B) vs arccos(-A/B)
+
+\begin{align*}
+  \tau &= \frac{cos(-A/B)}{B\sqrt(1-(A/B)^2)}\\
+\end{align*}
+
+Note that since $x\sim mmHg, v\sim L/min, S\sim L/(min\cdot mmHg)$, $A/B$ is dimensionless.
+
+Normal values for the parameters are
+\begin{align*}
+  \tau\sim 0.25min\\
+  x^*\sim 40mmHg\\
+  V^*\sim 7L/min\\
+  \lambda\sim 6 mmHg/min\\
+  S^*\sim 4L/(min\cdot mmHg)
+\end{align*}
+
+$A/B = 7/(40\cdot 4) =7/160 \approx 0.04$
+
+Since $A/B$ is small, $\arccos{-A/B} \approx \pi/2 \Rightarrow \omega\tau = \arccos(-A/B)\approx \pi/2$.
+
+%Also, $B\approx $
+
+$\tau \approx \pi/(2\cdot 3.4)\approx 0.46 minutes$
+
+$\tau = \frac{cos(-A/B)}{B\sqrt(1-(A/B)^2)}$
+
+Assertion: If $\tau < \tau_c$, then $x^*$ is locally stable. Physiological $\tau=0.25min$, calculated $\tau_c = 0.46 min$.
+
+Approximately: $\omega\tau_c = \pi/2 = B\tau_c = \lambda S^*/V^*\tau_c$
+
+Should have local stability if $\tau \le \pi/2 \cdot V^*/(\lambda S^*)$.
+
+\vbox{}
+
+recall $\nu = - A - B e^{-\nu\tau_c}$. Suppose we make perturbations in the form 
+
+\begin{align*}A
+  \rightarrow A+a\\B\rightarrow B+b\\ \tau_c\rightarrow \tau_c + \epsilon
+\end{align*}
+
+This expands (since $\epsilon\Delta\nu\in O(\epsilon^2)$) to:
+\[ \nu + \Delta\nu \approx -(A+A) - (B+b)e^{-\nu\tau_c} + (B+b)(\tau_c \Delta \nu +\nu\epsilon)e^{-\nu\tau_c}\]
+
+So $\Delta\nu\approx -a-be^{-\nu\tau_c}+ Be{-\nu\tau_c}(\tau_c\Delta\nu+\epsilon\nu)$
+
+Assuming only changes in $\tau \Rightarrow a=b=0$.
+
+$\Delta\nu\approx Be^{-\nu\tau_c}(\tau_c\Delta\nu+\epsilon\nu)$
+
+%$1-B\tau_c e^{-\nu\tau_c}\Delta\nu\approx \epsilon\nu\Be^{-\nu\tau_c}$
+
+Recall $\nu = i\omega$. Then
+\begin{align*}
+  Re[\Delta\nu] &= -\epsilon/D [-\omega^2(A\tau_c)+A\omega^2\tau_c]\\
+  &= \epsilon\omega^2/D
+\end{align*}
+
+%Where D is a denominator\dots
+
+Assumed small change in 3 parameters. Then solved for change in nu given small changes, simplified by assuming change in one variable. Attempt to answer question: if $\tau\rightarrow\tau+\epsilon,\quad\epsilon>0$, what happens to the real part of nu? We started with a solution where nu was purely imaginary, and had the requirement that it develop a real solution when tau becomes less than the critical value. We showed this\dots apparently.
